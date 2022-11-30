@@ -1,21 +1,36 @@
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-PWA-Test/sw.js", {
-    scope: "/ICS2O-PWA-Test/",
+  navigator.serviceWorker.register("/Unit-5-05-JS/sw.js", {
+    scope: "/Unit-5-05-JS/",
   })
 }
 
-;("use strict")
+"use strict"
 
-function calculate() {
-  const length = parseInt(document.getElementById("pay").value)
-  const width = parseInt(document.getElementById("pay2").value)
+function calculateVolumeClicked() {
+  
+  const lengthAString = document.getElementById("lengthA").value;
+  const lengthBString = document.getElementById("lengthB").value;
+  const lengthCString = document.getElementById("lengthC").value;
+  
+  const lengthA = parseFloat(lengthAString)
+  const lengthB = parseFloat(lengthBString)
+  const lengthC = parseFloat(lengthCString)
+  
+  // using the cosine law
+  const angleA = Math.acos((lengthB**2 + lengthC**2 - lengthA**2) / (2 * lengthB * lengthC)) * (180/Math.PI)
+  const angleB = Math.acos((lengthC**2 + lengthA**2 - lengthB**2) / (2 * lengthC * lengthA)) * (180/Math.PI)
+  const angleC = Math.acos((lengthA**2 + lengthB**2 - lengthC**2) / (2 * lengthA * lengthB)) * (180/Math.PI)
+  
+  const sumOfAngles = Number((angleA).toFixed(2)) + Number((angleB).toFixed(2)) + Number((angleC).toFixed(2))
 
-  const area = length * width * 0.18
-  const perimeter = length * width * (1.0 - 0.18)
-  const TAX_RATE = 0.18
-
-  document.getElementById("area").innerHTML =
-    "The governemnt will take: " + area + "$"
-  document.getElementById("perimeter").innerHTML =
-    "your pay will be: " + perimeter + "$"
+  if ((angleA == angleB) && (angleA == angleC)) {
+     document.getElementById("answers").innerHTML =
+      ("You have an equilateral triangle");
+} else if ((angleA != angleB) && (angleA != angleC)) {
+     document.getElementById("answers").innerHTML =
+      ("You have an Scalene triangle");
+} else if ((angleA != angleB) && (angleA == angleC)) {
+     document.getElementById("answers").innerHTML =
+      ("You have an Isosceles triangle");  
+ }
 }

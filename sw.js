@@ -1,4 +1,4 @@
-var GHPATH = "/ICS2O-PWA-Test"
+var GHPATH = "/Unit-5-05-JS"
 var APP_PREFIX = "gppwa_"
 var VERSION = "version_001"
 var URLS = [

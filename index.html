@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="My first PWA" />
+    <meta name="description" content="What kind of Triangle do you have?" />
     <meta name="keywords" content="mths, ics2o" />
     <meta name="author" content="Justin.Lavoie" />
     <meta name="theme-color" content="#FFFFFF" />
-    <title>GitHub page as PWA template</title>
+    <title>What kind of Triangle do you have?</title>
     <link
       rel="canonical"
-      href="https://Justin-Lavoie16.github.io/ICS2O-PWA-Test/"
+      href="https://Justin-Lavoie16.github.io/Unit-5-05-JS/"
     />
-    <link rel="manifest" href="/ICS2O-PWA-Test/manifest.webmanifest" />
+    <link rel="manifest" href="/Unit-5-05-JS/manifest.webmanifest" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link
       rel="stylesheet"
@@ -42,70 +42,40 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   </head>
-  <title>My first PWA</title>
+  <title>What kind of Triangle do you have?</title>
   <body>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="./js/script.js"></script>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">My first PWA</span>
-        </div>
-      </header>
-      <main class="mdl-layout__content">
-        <p></p>
-        <img
-          src="./images/notebook-animation.svg"
-          alt="Computer"
-          width="25%"
-          height="25%"
-        />
-        <h2>Formulas</h2>
-        <h3>pay = (hours x rate) x (1.00 - 0.18)</h3>
-        <h3>taxes = (hours x rate) x 0.18</h3>
-        <form action="#">
-          <p>time worked for</p>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input
-              class="mdl-textfield__input"
-              type="text"
-              pattern="-?[0-9]*(\.[0-9]+)?"
-              id="pay"
-            />
-            <label class="mdl-textfield__label" for="pay"
-              >number of hours worked ...</label
-            >
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-        </form>
-        <form action="#">
-          <p>hourly rate</p>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input
-              class="mdl-textfield__input"
-              type="text"
-              pattern="-?[0-9]*(\.[0-9]+)?"
-              id="pay2"
-            />
-            <label class="mdl-textfield__label" for="pay2"
-              >hourly rate ...</label
-            >
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-        </form>
-        <button
-          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          onclick="calculate()"
-        >
-          Calculate
-        </button>
-        <br />
-        <p></p>
-        <div id="answers">
-          <div id="area"></div>
-          <div id="perimeter"></div>
-        </div>
-      </main>
+    <h1>What kind of Triangle do you have?</h1>
+    <img src="./images/notebook-animation.svg" alt="pyramid" width="35%" height="auto" />
+    <h2>Type of triangle you have</h2>
+    <p></p>
+
+    <form action="javascript:calculateVolumeClicked()">
+      <label for="fname">Enter length A of the triangle:</label>
+      <input
+        type="number"
+        step="any"
+        id="lengthA"
+        placeholder="write here"
+      />&nbsp;mm<br /><br />
+      <label for="lname">Enter length B of the triangle:</label>
+      <input
+        type="number"
+        step="any"
+        id="lengthB"
+        placeholder="write here"
+      />&nbsp;mm<br /><br />
+      <label for="fname">Enter length C of the triangle:</label>
+      <input
+        type="number"
+        step="any"
+        id="lengthC"
+        placeholder="write here"
+      />&nbsp;mm<br /><br />
+      <input type="submit" value="Calculate" />
+    </form>
+    <div id="answers">
+      <div id="volume"></div>
     </div>
   </body>
 </html>

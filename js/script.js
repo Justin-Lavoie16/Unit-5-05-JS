@@ -40,10 +40,12 @@ function calculateVolumeClicked() {
   if (angleA == angleB && angleA == angleC) {
     document.getElementById("answers").innerHTML =
       "You have an equilateral triangle"
-  } else if (angleA != angleB && angleA != angleC) {
+  } 
+  else if (angleA != angleB && angleA != angleC) {
     document.getElementById("answers").innerHTML =
       "You have an Scalene triangle"
-  } else if (angleA != angleB && angleA == angleC) {
+  } 
+  else if (angleA != angleB && angleA == angleC) {
     document.getElementById("answers").innerHTML =
       "You have an Isosceles triangle"
   }

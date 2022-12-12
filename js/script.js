@@ -4,40 +4,51 @@ if (navigator.serviceWorker) {
   })
 }
 
-"use strict"
+;("use strict")
 
 function calculateVolumeClicked() {
-  
-  const lengthAString = document.getElementById("lengthA").value;
-  const lengthBString = document.getElementById("lengthB").value;
-  const lengthCString = document.getElementById("lengthC").value;
-  
+  const lengthAString = document.getElementById("lengthA").value
+  const lengthBString = document.getElementById("lengthB").value
+  const lengthCString = document.getElementById("lengthC").value
+
   const lengthA = parseFloat(lengthAString)
   const lengthB = parseFloat(lengthBString)
   const lengthC = parseFloat(lengthCString)
-  
-  // using the cosine law
-  const angleA = Math.acos((lengthB**2 + lengthC**2 - lengthA**2) / (2 * lengthB * lengthC)) * (180/Math.PI)
-  const angleB = Math.acos((lengthC**2 + lengthA**2 - lengthB**2) / (2 * lengthC * lengthA)) * (180/Math.PI)
-  const angleC = Math.acos((lengthA**2 + lengthB**2 - lengthC**2) / (2 * lengthA * lengthB)) * (180/Math.PI)
 
-  const total = Number((angleA).toFixed(2)) + Number((angleB).toFixed(2)) + Number((angleC).toFixed(2))
+  // using the cosine law
+  const angleA =
+    Math.acos(
+      (lengthB ** 2 + lengthC ** 2 - lengthA ** 2) / (2 * lengthB * lengthC)
+    ) *
+    (180 / Math.PI)
+  const angleB =
+    Math.acos(
+      (lengthC ** 2 + lengthA ** 2 - lengthB ** 2) / (2 * lengthC * lengthA)
+    ) *
+    (180 / Math.PI)
+  const angleC =
+    Math.acos(
+      (lengthA ** 2 + lengthB ** 2 - lengthC ** 2) / (2 * lengthA * lengthB)
+    ) *
+    (180 / Math.PI)
+
+  const total =
+    Number(angleA.toFixed(2)) +
+    Number(angleB.toFixed(2)) +
+    Number(angleC.toFixed(2))
   if (total != 180) {
     document.getElementById("answers").innerHTML =
-      ("Invalid angle provided.  Sum must equal 180");
+      "Invalid angle provided.  Sum must equal 180"
   } else {
-    if ((angleA == angleB) && (angleA == angleC)) {
-     document.getElementById("answers").innerHTML =
-      ("You have an equilateral triangle");
-    } else if ((angleA != angleB) && (angleA != angleC)) {
-         document.getElementById("answers").innerHTML =
-          ("You have an Isoscele triangle");
-    } else if ((angleA != angleB) && (angleA == angleC)) {
-         document.getElementById("answers").innerHTML =
-          ("You have an Scalene triangle");
-      
-     }
+    if (angleA == angleB && angleA == angleC) {
+      document.getElementById("answers").innerHTML =
+        "You have an equilateral triangle"
+    } else if (angleA != angleB && angleA != angleC) {
+      document.getElementById("answers").innerHTML =
+        "You have an Isoscele triangle"
+    } else if (angleA != angleB && angleA == angleC) {
+      document.getElementById("answers").innerHTML =
+        "You have an Scalene triangle"
+    }
   }
-
-  
 }
